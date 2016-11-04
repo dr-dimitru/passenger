@@ -2,6 +2,7 @@ Next version (not yet released)
 -------------------------------
 
  * Fixes remaining false positives (logging) from the new Meteor cluster warning system. Closes GH-1905.
+ * Fixes `passenger-memory-stats` incorrectly excluding JRuby processes. Closes GH-1878.
 
 
 Release 5.1.1
