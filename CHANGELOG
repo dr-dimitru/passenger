@@ -2,6 +2,7 @@ Next version (not yet released)
 -------------------------------
 
  * Fixes remaining false positives (logging) from the new Meteor cluster warning system. Closes GH-1905.
+ * Create a private keychain on macOS when run as a daemon user.
 
 
 Release 5.1.1
