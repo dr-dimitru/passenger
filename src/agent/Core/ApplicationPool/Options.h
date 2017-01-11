@@ -692,7 +692,7 @@ public:
 		} else if (appType == P_STATIC_STRING("node")) {
 			return nodejs + "\t" + resourceLocator.getHelperScriptsDir() + "/node-loader.js";
 		} else if (appType == P_STATIC_STRING("phantomjs")) {
-			return nodejs + "\t" + resourceLocator.getHelperScriptsDir() + "/phantomjs-loader.js";
+			return nodejs + "\t" + resourceLocator.getHelperScriptsDir() + "/phantomjs-loader.rb";
 		} else if (appType == P_STATIC_STRING("meteor")) {
 			return ruby + "\t" + resourceLocator.getHelperScriptsDir() + "/meteor-loader.rb";
 		} else {
