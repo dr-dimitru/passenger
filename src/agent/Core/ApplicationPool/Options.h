@@ -107,6 +107,8 @@ private:
 		result.push_back(&options.ruby);
 		result.push_back(&options.python);
 		result.push_back(&options.nodejs);
+		result.push_back(&options.phantomjs);
+		result.push_back(&options.phantomjsArgs);
 		result.push_back(&options.meteorAppSettings);
 
 		result.push_back(&options.environmentVariables);
@@ -268,6 +270,18 @@ public:
 	 * is a Node.js app.
 	 */
 	StaticString nodejs;
+
+	/**
+	 * Path to the PhantomJS command to use, in case the application to spawn
+	 * is a Node.js (PhantomJS) app.
+	 */
+	StaticString phantomjs;
+
+	/**
+	 * PhantomJS process arguments
+	 * See: http://phantomjs.org/api/command-line.html
+	 */
+	StaticString phantomjsArgs;
 
 	/**
 	 * When running meteor in non-bundled mode, settings for the application need to be specified
@@ -618,6 +632,8 @@ public:
 			appendKeyValue (vec, "ruby",               ruby);
 			appendKeyValue (vec, "python",             python);
 			appendKeyValue (vec, "nodejs",             nodejs);
+			appendKeyValue (vec, "phantomjs",          phantomjs);
+			appendKeyValue (vec, "phantomjs_args",     phantomjsArgs);
 			appendKeyValue (vec, "meteor_app_settings", meteorAppSettings);
 			appendKeyValue (vec, "ust_router_address",  ustRouterAddress);
 			appendKeyValue (vec, "ust_router_username", ustRouterUsername);
@@ -675,6 +691,8 @@ public:
 			return python + "\t" + resourceLocator.getHelperScriptsDir() + "/wsgi-loader.py";
 		} else if (appType == P_STATIC_STRING("node")) {
 			return nodejs + "\t" + resourceLocator.getHelperScriptsDir() + "/node-loader.js";
+		} else if (appType == P_STATIC_STRING("phantomjs")) {
+			return nodejs + "\t" + resourceLocator.getHelperScriptsDir() + "/phantomjs-loader.js";
 		} else if (appType == P_STATIC_STRING("meteor")) {
 			return ruby + "\t" + resourceLocator.getHelperScriptsDir() + "/meteor-loader.rb";
 		} else {
